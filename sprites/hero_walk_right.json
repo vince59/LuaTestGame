@@ -1,0 +1,47 @@
+{
+    "width": 1,
+    "height": 1,
+    "tilesName": "Hero",
+    "animation": [
+        {
+            "tiles": [
+                25
+            ]
+        },
+        {
+            "tiles": [
+                26
+            ]
+        },
+        {
+            "tiles": [
+                27
+            ]
+        },
+        {
+            "tiles": [
+                28
+            ]
+        },
+        {
+            "tiles": [
+                29
+            ]
+        },
+        {
+            "tiles": [
+                30
+            ]
+        },
+        {
+            "tiles": [
+                31
+            ]
+        },
+        {
+            "tiles": [
+                32
+            ]
+        }
+    ]
+}

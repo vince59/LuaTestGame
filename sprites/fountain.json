@@ -1,10 +1,10 @@
 {
     "width": 3,
     "height": 3,
-    "tiles": "Outdoor",
+    "tilesName": "Outdoor",
     "animation": [
         {
-            "slices": [
+            "tiles": [
                 383,
                 384,
                 385,
@@ -17,7 +17,7 @@
             ]
         },
         {
-            "slices": [
+            "tiles": [
                 386,
                 387,
                 388,
@@ -30,7 +30,7 @@
             ]
         },
         {
-            "slices": [
+            "tiles": [
                 389,
                 390,
                 391,

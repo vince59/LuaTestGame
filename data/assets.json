@@ -1,11 +1,11 @@
 {
     "Outdoor": {
-        "imagePath": "assets/Overworld.png",
+        "imagePath": "assets/outdoor.png",
         "width": 16,
         "height": 16
     },
-    "Walker": {
-        "imagePath": "assets/rpg_sprite_walk.png",
+    "Hero": {
+        "imagePath": "assets/hero.png",
         "width": 24,
         "height": 32
     }

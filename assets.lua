@@ -8,7 +8,7 @@ function Assets:load()
     local jsonStr = assetsFile:read("*all")
     local assets=json.decode(jsonStr)
     for assetName, assetValue in pairs(assets) do
-        local tileSet=TileSet:new()
+        local tileSet=TileSet.new()
         for paramName, paramValue in pairs(assetValue) do
             tileSet[paramName]=paramValue
         end

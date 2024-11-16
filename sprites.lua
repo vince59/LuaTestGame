@@ -1,4 +1,5 @@
 local json = require "json"
+local Sprite = require("sprite")
 
 Sprites = {}
 
@@ -7,7 +8,10 @@ function Sprites:load()
         local spriteFile = io.open("sprites/" .. spriteName, "r")
         local jsonStr = spriteFile:read("*all")
         local data = json.decode(jsonStr)
-        self[spriteName] = {}
+        spriteName=string.sub(spriteName,1,#spriteName-5)
+        self[spriteName] = Sprite.new()
+        self[spriteName].currentTime=0
+        self[spriteName].duration=1
         for field, value in pairs(data) do
             if field == "animation" then
                 self[spriteName]["animation"]={}
@@ -27,6 +31,5 @@ function Sprites:load()
     end
 end
 
-function Sprites:draw(spriteName,x,y,scale)
-    
-end
+
+

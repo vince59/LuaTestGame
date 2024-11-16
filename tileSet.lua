@@ -2,7 +2,7 @@ local TileSet = {}
 
 -- Constructor
 
-function TileSet:new()
+function TileSet.new()
     local instance={}
     setmetatable(instance, {__index = TileSet})
     instance.imagePath=""
@@ -13,8 +13,8 @@ function TileSet:new()
     return instance
 end
 
-function TileSet:drawSprite(spriteNumber,x,y,scale)
-    love.graphics.draw(self.spriteSheet, self.quads[spriteNumber], x,y, 0, scale)
+function TileSet:drawTile(tileNumber,x,y,scale)
+    love.graphics.draw(self.spriteSheet, self.quads[tileNumber], x,y, 0, scale)
 end
 
 function TileSet:load()
