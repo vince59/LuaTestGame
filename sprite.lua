@@ -1,3 +1,5 @@
+-- Sprite class
+
 local Sprite = {}
 
 function Sprite.new()
@@ -19,9 +21,9 @@ function Sprite:draw(x,y,scale)
     for row=1,self.height do
         for col=1,self.width do 
             i=i+1
-            local x1=x+((col-1)*Assets[self.tilesName].width)
-            local y1=y+((row-1)*Assets[self.tilesName].height)
-            Assets[self.tilesName]:drawTile(self.animation[animationNum].tiles[i],x1,y1,scale)
+            local x1=x+((col-1)*TileBoards[self.tilesName].width)
+            local y1=y+((row-1)*TileBoards[self.tilesName].height)
+            TileBoards[self.tilesName]:drawTile(self.animation[animationNum].tiles[i],x1,y1,scale)
         end
     end
 end

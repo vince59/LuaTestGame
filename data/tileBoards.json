@@ -1,11 +1,11 @@
 {
     "Outdoor": {
-        "imagePath": "assets/outdoor.png",
+        "imagePath": "images/outdoor.png",
         "width": 16,
         "height": 16
     },
     "Hero": {
-        "imagePath": "assets/hero.png",
+        "imagePath": "images/hero.png",
         "width": 24,
         "height": 32
     }

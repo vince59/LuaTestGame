@@ -1,10 +1,11 @@
-
-require("assets")
+require("tileBoards")
 require("sprites")
+require("characters")
 
 function love.load()
-    Assets:load()
+    TileBoards:load()
     Sprites:load()
+    Characters:load()
 end
 
 function love.update(dt)
@@ -15,6 +16,7 @@ function love.update(dt)
     Sprites.hero_walk_up:update(dt)
     Sprites.hero_walk_left:update(dt)
     Sprites.hero_walk_right:update(dt)
+    Characters.hero:update(dt)
 end
 
 function love.draw()
@@ -25,4 +27,5 @@ function love.draw()
     Sprites.hero_walk_up:draw(160,10,1)
     Sprites.hero_walk_left:draw(180,10,1)
     Sprites.hero_walk_right:draw(200,10,1)
+    Characters.hero:draw()
 end

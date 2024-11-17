@@ -1,10 +1,10 @@
-local TileSet = {}
+-- TileBoard class
 
--- Constructor
+local TileBoard = {}
 
-function TileSet.new()
+function TileBoard.new()
     local instance={}
-    setmetatable(instance, {__index = TileSet})
+    setmetatable(instance, {__index = TileBoard})
     instance.imagePath=""
     instance.width=0
     instance.height=0
@@ -13,11 +13,11 @@ function TileSet.new()
     return instance
 end
 
-function TileSet:drawTile(tileNumber,x,y,scale)
+function TileBoard:drawTile(tileNumber,x,y,scale)
     love.graphics.draw(self.spriteSheet, self.quads[tileNumber], x,y, 0, scale)
 end
 
-function TileSet:load()
+function TileBoard:load()
     self.spriteSheet = love.graphics.newImage(self.imagePath)
     self.quads = {};
     self.nbCol=self.spriteSheet:getWidth()/self.width
@@ -29,4 +29,4 @@ function TileSet:load()
     end
 end
 
-return TileSet
+return TileBoard

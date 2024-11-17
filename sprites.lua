@@ -1,3 +1,5 @@
+-- global Sprites table
+
 local json = require "json"
 local Sprite = require("sprite")
 
