@@ -9,6 +9,9 @@ function Character.new()
 end
 
 function Character:update(dt)
+    local x=self.x
+    local y=self.y
+
     if love.keyboard.isDown("up") then
         self:move("up", dt)
     elseif love.keyboard.isDown("down") then
@@ -20,9 +23,17 @@ function Character:update(dt)
     else
         self:move("", dt)
     end
-    self:checkBoundaries()
+    if self.static then
+        self.spriteName = self.name .. "_stop_" .. self.direction
+    else
+        self.spriteName = self.name .. "_walk_" .. self.direction
+    end
+    if self:checkBoundaries() then
+        self.x=x
+        self.y=y
+    end
     if self.static == false then
-        Sprites[self.name .. "_walk_" .. self.direction]:update(dt)
+        Sprites[self.spriteName]:update(dt)
     end
 end
 
@@ -57,16 +68,11 @@ function Character:checkBoundaries()
     elseif self.x + width > love.graphics.getWidth() then
         self.x = love.graphics.getWidth() - width
     end
+    return Boundings:checkCollision(self.x, self.y, Sprites[self.spriteName])
 end
 
 function Character:draw()
-    local spriteName = ""
-    if self.static then
-        spriteName = self.name .. "_stop_" .. self.direction
-    else
-        spriteName = self.name .. "_walk_" .. self.direction
-    end
-    Sprites[spriteName]:draw(self.x, self.y, self.scale)
+    Sprites[self.spriteName]:draw(self.x, self.y, self.scale)
 end
 
 return Character
