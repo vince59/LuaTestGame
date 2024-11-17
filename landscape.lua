@@ -21,7 +21,7 @@ function Landscape.verticalLine(x,y,length,sprite,isOutOfBounds)
 end
 
 function Landscape.rectangle(x, y, width, height, topLeftCorner, topRightCorner, bottomLeftCorner, bottomRightCorner,
-                             horizontalLine, verticalLine, filling)
+                             horizontalLine, verticalLine, filling, isOutOfBounds)
     local tileWidth = topLeftCorner:getTilesWidth()
     local tileHeight = topLeftCorner:getTilesHeight()
     local scale = 1
@@ -30,18 +30,14 @@ function Landscape.rectangle(x, y, width, height, topLeftCorner, topRightCorner,
     height = height - 1
 
     if (width > 0 and height > 0) then
-        topLeftCorner:draw(x, y, scale)
-        topRightCorner:draw((tileWidth * width + x), y, scale)
-        bottomLeftCorner:draw(x, (tileHeight * height + y), scale)
-        bottomRightCorner:draw((tileWidth * width + x), (tileHeight * height + y), scale)
-        for x = x + tileWidth, (tileWidth * (width - 1) + x), tileWidth do
-            horizontalLine:draw(x, y, scale)
-            horizontalLine:draw(x, y + tileHeight * height, scale)
-        end
-        for y = y + tileHeight, (tileHeight * (height - 1) + y), tileHeight do
-            verticalLine:draw(x, y, scale)
-            verticalLine:draw(x + tileWidth * width, y, scale)
-        end
+        topLeftCorner:draw(x, y, scale,isOutOfBounds)
+        topRightCorner:draw((tileWidth * width + x), y, scale,isOutOfBounds)
+        bottomLeftCorner:draw(x, (tileHeight * height + y), scale,isOutOfBounds)
+        bottomRightCorner:draw((tileWidth * width + x), (tileHeight * height + y), scale,isOutOfBounds)
+        Landscape.horizontalLine(x + tileWidth,y,width-1,horizontalLine,isOutOfBounds)
+        Landscape.horizontalLine(x + tileWidth,y+tileHeight*height,width-1,horizontalLine,isOutOfBounds)
+        Landscape.verticalLine(x,y,height,verticalLine,isOutOfBounds)
+        Landscape.verticalLine(x + tileWidth*width,y,height,verticalLine,isOutOfBounds)
     end
 end
 

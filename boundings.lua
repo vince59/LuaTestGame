@@ -3,10 +3,17 @@
 Boundings = {}
 Boundings.limits = {}
 
-function Boundings:addLimit(x, y, width, height, outOfBounds)
-    if outOfBounds ~= nil then
-        self.limits[#self.limits + 1] = { x = x, y = y, width = width, height = height, outOfBounds = outOfBounds }
+function Boundings:addLimit(x, y, width, height, IsOutOfBounds)
+    if IsOutOfBounds ~= nil then
+        if (IsOutOfBounds) then
+            love.graphics.setColor(255,0,0) --Red
+        else
+            love.graphics.setColor(0,0,255) --Blue
+        end
+        love.graphics.rectangle("line",x, y, width, height)
+        self.limits[#self.limits + 1] = { x = x, y = y, width = width, height = height, outOfBounds = IsOutOfBounds }
     end
+    love.graphics.reset( )
 end
 
 function Boundings:isOutOfBounds(x, y, sprite)
