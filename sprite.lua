@@ -15,7 +15,8 @@ function Sprite:update(dt)
     end
 end
 
-function Sprite:draw(x, y, scale)
+function Sprite:draw(x, y, scale, isOutOfBounds)
+    Boundings:addLimit(x,y,self:getPixWidth(),self:getPixHeight(),isOutOfBounds)
     local animationNum = math.floor(self.currentTime / self.duration * #self.animation) + 1
     if animationNum <= #self.animation then
         local i = 0

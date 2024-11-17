@@ -2,9 +2,8 @@
 
 Landscape = {}
 
-function Landscape.horizontalLine(x,y,length,sprite,limit)
-    print(limit)
-    Boundings.addLimit(x,y,length*sprite:getPixWidth(),sprite:getPixHeight(),limit)
+function Landscape.horizontalLine(x,y,length,sprite,isOutOfBounds)
+    Boundings:addLimit(x,y,length*sprite:getPixWidth(),sprite:getPixHeight(),isOutOfBounds)
     local tileWidth = sprite:getTilesWidth()
     local scale = 1
     for x = x, (tileWidth * (length-1) + x), tileWidth do
@@ -12,8 +11,8 @@ function Landscape.horizontalLine(x,y,length,sprite,limit)
     end
 end
 
-function Landscape.verticalLine(x,y,length,sprite,limit)
-    Boundings.addLimit(x,y,sprite:getPixWidth(),length*sprite:getPixHeight(),limit)
+function Landscape.verticalLine(x,y,length,sprite,isOutOfBounds)
+    Boundings:addLimit(x,y,sprite:getPixWidth(),length*sprite:getPixHeight(),isOutOfBounds)
     local tileHeight = sprite:getTilesHeight()
     local scale = 1
     for y = y + tileHeight, (tileHeight * (length - 1) + y), tileHeight do
